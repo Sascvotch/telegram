@@ -81,7 +81,7 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
     public void run() {
         LocalDateTime nowTime = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES);
         List<Task> nowTask = taskRepository.getTasksByTaskDateLikeNow(nowTime);
-        //   System.out.println(nowTask.toString());
+        // ..  System.out.println(nowTask.toString());
         for (int i = 0; i < nowTask.size(); i++) {
             SendMessage outMessage = new SendMessage(nowTask.get(i).getIdChat(), "Сейчас необходимо:" + nowTask.get(i).getTaskText());
             SendResponse response = telegramBot.execute(outMessage);
